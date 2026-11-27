@@ -6,10 +6,10 @@
   <meta name="theme-color" content="#f7f1e8">
   <title>עולם המשחקים</title>
   <style>
-    :root{--cream:#f7f1e8;--paper:#fffdf9;--brown:#654832;--dark:#3e2b20;--tan:#e8d7c2;--muted:#806f60;--line:#eadfd2}
+    :root{--cream:#f7f7f4;--paper:#ffffff;--brown:#654832;--dark:#3e2b20;--tan:#e8e3da;--muted:#80776d;--line:#eeeae3}
     *{box-sizing:border-box}
-    body{margin:0;background:var(--cream);color:var(--dark);font-family:Arial,"Noto Sans Hebrew",sans-serif;line-height:1.6}
-    header{padding:28px 20px 18px;background:linear-gradient(135deg,#f1e5d5,#fffaf3);border-bottom:1px solid var(--line)}
+    body{margin:0;background:#f7f7f4;color:var(--dark);font-family:Arial,"Noto Sans Hebrew",sans-serif;line-height:1.6;position:relative}\n    .bg-words{position:fixed;inset:0;z-index:0;pointer-events:none;display:grid;grid-template-columns:repeat(3,1fr);align-content:space-around;justify-items:center;gap:38px 12px;overflow:hidden;transform:rotate(-10deg) scale(1.12);color:#9b9184;opacity:.12;font-size:8px;letter-spacing:1.5px;white-space:nowrap}\n    header,main,footer{position:relative;z-index:1}\n    .menorah{position:absolute;left:28px;top:42px;width:190px;height:150px;opacity:.96;filter:drop-shadow(0 4px 8px #8e80651c)}\n    .menorah path,.menorah line{stroke:#e8e2d9;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;fill:none}\n    .menorah .white{stroke:#fff;stroke-width:9}\n    .menorah .flame{fill:#e6bd69;stroke:#d9ae58;stroke-width:1}\n    @media(max-width:650px){.menorah{width:105px;height:85px;left:8px;top:82px;opacity:.8}h1{max-width:75%}}
+    header{padding:28px 20px 18px;background:linear-gradient(135deg,#fbfbf8,#f1f0eb);border-bottom:1px solid var(--line);overflow:hidden;min-height:230px}
     .wrap{max-width:1080px;margin:auto}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
     .brand{font-size:1.05rem;font-weight:700;color:var(--brown)}.tag{background:#fffaf3;border:1px solid var(--tan);border-radius:999px;padding:6px 13px;color:var(--muted);font-size:.9rem}
     h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.15;margin:32px 0 10px;color:var(--brown)}.lead{font-size:1.1rem;color:var(--muted);max-width:650px;margin:0}
@@ -17,7 +17,7 @@
     .search{flex:1;min-width:220px}input{width:100%;padding:14px 16px;border:1px solid var(--tan);border-radius:14px;background:var(--paper);font:inherit;color:var(--dark);outline:none}
     input:focus{border-color:var(--brown);box-shadow:0 0 0 3px #65483218}.count{color:var(--muted);font-size:.95rem}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-    .game{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 5px 18px #6548320b;display:flex;flex-direction:column;gap:9px}
+    .game{background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 5px 18px #6548320b;display:flex;flex-direction:column;gap:9px}
     .game-art{height:112px;border-radius:16px;background:linear-gradient(135deg,#f3e6d6,#fff8ed);display:grid;place-items:center;font-size:2.8rem}
     .game h2{color:var(--brown);font-size:1.2rem;margin:3px 0}.game p{color:var(--muted);margin:0;flex:1}
     .play{display:inline-block;text-decoration:none;background:var(--brown);color:white;padding:10px 16px;border-radius:12px;text-align:center;font-weight:700;margin-top:8px}
