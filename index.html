@@ -11,12 +11,12 @@
     body{margin:0;background:#f7f7f4;color:var(--dark);font-family:Arial,"Noto Sans Hebrew",sans-serif;line-height:1.6;position:relative}
     .bg-words{position:fixed;inset:0;z-index:0;pointer-events:none;display:grid;grid-template-columns:repeat(3,1fr);align-content:space-around;justify-items:center;gap:38px 12px;overflow:hidden;transform:rotate(-10deg) scale(1.12);color:#9b9184;opacity:.12;font-size:8px;letter-spacing:1.5px;white-space:nowrap}
     header,main,footer{position:relative;z-index:1}
-    .menorah{position:absolute;left:28px;top:42px;width:190px;height:150px;opacity:.96;filter:drop-shadow(0 4px 8px #8e80651c)}
+    .menorah{position:absolute;z-index:3;left:28px;top:34px;width:210px;height:165px;opacity:1;filter:drop-shadow(0 3px 5px #82786755)}
     .menorah path,.menorah line{stroke:#e8e2d9;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;fill:none}
     .menorah .white{stroke:#fff;stroke-width:9}
     .menorah .flame{fill:#e6bd69;stroke:#d9ae58;stroke-width:1}
-    @media(max-width:650px){.menorah{width:105px;height:85px;left:8px;top:82px;opacity:.8}h1{max-width:75%}}
-    header{padding:28px 20px 18px;background:linear-gradient(135deg,#fbfbf8,#f1f0eb);border-bottom:1px solid var(--line);overflow:hidden;min-height:230px}
+    @media(max-width:650px){.menorah{width:118px;height:92px;left:8px;top:88px;opacity:1}h1{max-width:75%}}
+    header{position:relative;padding:28px 20px 18px;background:linear-gradient(135deg,#fbfbf8,#f1f0eb);border-bottom:1px solid var(--line);overflow:hidden;min-height:230px}
     .wrap{max-width:1080px;margin:auto}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
     .brand{font-size:1.05rem;font-weight:700;color:var(--brown)}.tag{background:#fffaf3;border:1px solid var(--tan);border-radius:999px;padding:6px 13px;color:var(--muted);font-size:.9rem}
     h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.15;margin:32px 0 10px;color:var(--brown)}.lead{font-size:1.1rem;color:var(--muted);max-width:650px;margin:0}
@@ -58,7 +58,7 @@
   </div>
   <header>
     <svg class="menorah" viewBox="0 0 220 170" role="img" aria-label="חנוכייה לבנה עם נרות דולקים">
-      <g class="white"><path d="M110 143V90 M110 116C83 116 67 99 67 70 M110 116C137 116 153 99 153 70 M110 103C91 103 88 82 88 54 M110 103C129 103 132 82 132 54 M110 90V37 M48 143H172 M58 143V130H162V143"/></g>
+      <g fill="none" stroke="#d8d1c7" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"><path d="M110 143V90 M110 116C83 116 67 99 67 70 M110 116C137 116 153 99 153 70 M110 103C91 103 88 82 88 54 M110 103C129 103 132 82 132 54 M110 90V37 M48 143H172 M58 143V130H162V143"/></g><g class="white"><path d="M110 143V90 M110 116C83 116 67 99 67 70 M110 116C137 116 153 99 153 70 M110 103C91 103 88 82 88 54 M110 103C129 103 132 82 132 54 M110 90V37 M48 143H172 M58 143V130H162V143"/></g>
       <g class="flame"><path d="M110 24C99 36 104 43 110 45C116 43 121 36 110 24Z"/><path d="M67 57C58 67 62 73 67 75C72 73 76 67 67 57Z"/><path d="M88 41C79 51 83 57 88 59C93 57 97 51 88 41Z"/><path d="M132 41C123 51 127 57 132 59C137 57 141 51 132 41Z"/><path d="M153 57C144 67 148 73 153 75C158 73 162 67 153 57Z"/></g>
     </svg>
     <div class="wrap">
