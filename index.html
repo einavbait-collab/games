@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f1e8">
+  <title>עולם המשחקים</title>
+  <style>
+    :root{--cream:#f7f1e8;--paper:#fffdf9;--brown:#654832;--dark:#3e2b20;--tan:#e8d7c2;--muted:#806f60;--line:#eadfD2}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--cream);color:var(--dark);font-family:Arial,"Noto Sans Hebrew",sans-serif;line-height:1.6}
+    header{padding:28px 20px 18px;background:linear-gradient(135deg,#f1e5d5,#fffaf3);border-bottom:1px solid var(--line)}
+    .wrap{max-width:1080px;margin:auto}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .brand{font-size:1.05rem;font-weight:700;color:var(--brown)}
+    .tag{background:#fffaf3;border:1px solid var(--tan);border-radius:999px;padding:6px 13px;color:var(--muted);font-size:.9rem}
+    h1{font-size:clamp(2rem,5vw,3.5rem);line-height:1.15;margin:32px 0 10px;color:var(--brown)}
+    .lead{font-size:1.1rem;color:var(--muted);max-width:650px;margin:0}
+    main{padding:30px 20px 60px}
+    .tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:10px 0 24px}
+    .search{flex:1;min-width:220px;position:relative}
+    input{width:100%;padding:14px 16px;border:1px solid var(--tan);border-radius:14px;background:var(--paper);font:inherit;color:var(--dark);outline:none}
+    input:focus{border-color:var(--brown);box-shadow:0 0 0 3px #65483218}
+    .count{color:var(--muted);font-size:.95rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+    .empty{grid-column:1/-1;text-align:center;background:var(--paper);border:1px dashed #cdb79f;border-radius:22px;padding:42px 20px}
+    .empty .emoji{font-size:2.8rem}
+    .empty h2{color:var(--brown);margin:8px 0}
+    .empty p{color:var(--muted);margin:0 auto;max-width:460px}
+    .note{margin-top:28px;padding:18px 20px;border-radius:16px;background:#efe4d6;color:#604832}
+    footer{text-align:center;padding:22px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+    a{color:var(--brown)}
+    @media(max-width:520px){header{padding-top:20px}.top{align-items:flex-start}main{padding-inline:15px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="top">
+        <div class="brand">🤎 עולם המשחקים</div>
+        <div class="tag">משחקים יצירתיים במקום אחד</div>
+      </div>
+      <h1>מוצאים משחק חדש לשחק בו!</h1>
+      <p class="lead">אוסף משחקים שנוצרו על ידי תלמידים ויוצרים צעירים. בוחרים משחק, נכנסים ונהנים.</p>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="tools">
+      <div class="search">
+        <input id="search" type="search" placeholder="🔎 חיפוש משחק..." aria-label="חיפוש משחקים">
+      </div>
+      <div class="count" id="count" aria-live="polite">עדיין אין משחקים ברשימה</div>
+    </div>
+    <section class="grid" id="games" aria-label="רשימת משחקים">
+      <div class="empty">
+        <div class="emoji" aria-hidden="true">🎮 ✨</div>
+        <h2>המשחקים הראשונים בדרך!</h2>
+        <p>כאן יופיעו משחקים אחרי שנבדוק שהם מתאימים ובטוחים. בקרוב אפשר יהיה לחפש ולגלות משחקים חדשים.</p>
+      </div>
+    </section>
+    <div class="note"><strong>חשוב לנו לשמור על כולם:</strong> כל קישור למשחק ייבדק על ידי מבוגר לפני שיופיע באתר. לא משתפים כאן פרטים אישיים.</div>
+  </main>
+  <footer>נבנה באהבה 🤍 · עולם המשחקים</footer>
+  <script>
+    // משחקים יתווספו כאן רק לאחר בדיקת הקישור והתוכן.
+    const games = [];
+    const search = document.getElementById('search');
+    const grid = document.getElementById('games');
+    const count = document.getElementById('count');
+    function render(){
+      const term = search.value.trim().toLocaleLowerCase('he');
+      const matches = games.filter(game => (game.title + ' ' + game.description).toLocaleLowerCase('he').includes(term));
+      count.textContent = games.length ? matches.length + ' משחקים נמצאו' : 'עדיין אין משחקים ברשימה';
+      if(!matches.length){
+        grid.innerHTML = '<div class="empty"><div class="emoji" aria-hidden="true">🎮 ✨</div><h2>'+(games.length ? 'לא מצאנו משחק כזה' : 'המשחקים הראשונים בדרך!')+'</h2><p>'+(games.length ? 'נסו מילת חיפוש אחרת.' : 'כאן יופיעו משחקים אחרי שנבדוק שהם מתאימים ובטוחים.')+'</p></div>';
+        return;
+      }
+      grid.innerHTML = matches.map(game => '<article class="empty"><h2>'+escapeHtml(game.title)+'</h2><p>'+escapeHtml(game.description)+'</p><p><a href="'+safeUrl(game.url)+'" target="_blank" rel="noopener noreferrer">למשחק ←</a></p></article>').join('');
+    }
+    function escapeHtml(value){return String(value).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+    function safeUrl(value){try{const u=new URL(value);return u.protocol==='https:'?u.href:'#';}catch{return '#';}}
+    search.addEventListener('input', render);
+    render();
+  </script>
+</body>
+</html>
