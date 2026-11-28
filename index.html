@@ -33,6 +33,50 @@
     .note{margin-top:28px;padding:18px 20px;border-radius:16px;background:#efe4d6;color:#604832}
     footer{text-align:center;padding:22px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}a{color:var(--brown)}
     @media(max-width:520px){header{padding-top:20px}.top{align-items:flex-start}main{padding-inline:15px}}
+
+    /* התאמה משופרת למחשב, לטאבלט ולנייד */
+    html{ -webkit-text-size-adjust:100%; }
+    body{ min-width:0; }
+    .wrap{ width:min(100% - 40px,1080px); }
+    .grid{ grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr)); }
+    .game{ min-width:0; }
+    .play{ min-height:44px; display:flex; align-items:center; justify-content:center; }
+    input{ min-height:48px; font-size:16px; }
+    @media (min-width:900px){
+      header{padding-block:34px 28px; min-height:245px}
+      main{padding-top:36px}
+      .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+    }
+    @media (min-width:521px) and (max-width:899px){
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .menorah{width:190px;height:auto;left:12px;top:62px}
+      h1{max-width:78%}
+    }
+    @media (max-width:520px){
+      .wrap{width:calc(100% - 28px)}
+      header{padding:18px 14px 22px;min-height:0}
+      .top{display:block;padding-top:4px}
+      .brand{font-size:clamp(1.35rem,6vw,1.8rem);max-width:100%;padding-inline-end:0}
+      .brand-name{font-size:1.35em}
+      .tag{display:inline-block;margin-top:12px;font-size:.82rem}
+      .menorah{width:104px;height:auto;left:5px;top:104px}
+      h1{font-size:clamp(1.65rem,7vw,2.1rem);max-width:100%;margin:28px 0 8px}
+      .lead{font-size:1rem;max-width:100%}
+      main{padding:20px 0 38px}
+      .tools{display:grid;grid-template-columns:1fr;gap:8px;margin:6px 0 18px}
+      .search{min-width:0;width:100%}
+      .count{font-size:.88rem}
+      .grid{grid-template-columns:1fr;gap:13px}
+      .game{padding:16px;border-radius:18px}
+      .game-art{height:90px}
+      .note{padding:14px;margin-top:20px}
+      footer{padding:18px 12px}
+    }
+    @media (max-width:360px){
+      .menorah{width:84px;top:112px}
+      .brand{font-size:1.25rem}
+      h1{font-size:1.55rem}
+    }
   </style>
 </head>
 <body>
